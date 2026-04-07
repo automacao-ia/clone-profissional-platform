@@ -1,0 +1,235 @@
+squad:
+  name: clone-profissional-squad
+  description: "Squad para criação de clones cognitivos profissionais baseado na metodologia Clone Profissional"
+  domain: cognitive-clone-platform
+  slashPrefix: clone
+
+analysis:
+  entities:
+    - Clone
+    - Framework
+    - Persona
+    - SystemPrompt
+    - TuringTest
+    - Layer
+    - CalibrationModel
+    - ResponseMatrix
+    - SignatureFormula
+    - SelfClone
+  workflows:
+    - framework-library-management
+    - forensic-framework-extraction
+    - clone-creation-wizard
+    - system-prompt-generation
+    - turing-test-suite
+    - clone-management
+    - self-clone-flow
+    - response-matrix-config
+  integrations:
+    - ChatGPT (export)
+    - Claude API (export)
+    - JSON (export/import)
+  stakeholders:
+    - content-creator
+    - consultant-coach
+    - mental-model-student
+    - prompt-engineer
+
+recommendations:
+  agents:
+    - id: framework-librarian
+      role: "Gerencia a biblioteca de frameworks verificados por pessoa (Hormozi, Naval, Buffett, etc.)"
+      commands:
+        - catalog-frameworks
+        - add-framework
+        - verify-framework
+        - search-frameworks
+        - filter-frameworks
+        - preview-framework
+      confidence: 0.96
+      user_added: false
+      user_modified: false
+
+    - id: clone-builder
+      role: "Conduz o wizard de 5 etapas para criação de clones cognitivos seguindo o protocolo forense"
+      commands:
+        - start-clone
+        - define-persona
+        - extract-frameworks
+        - configure-layers
+        - calibrate-tfr
+        - build-signature
+        - complete-clone
+      confidence: 0.95
+      user_added: false
+      user_modified: false
+
+    - id: prompt-generator
+      role: "Gera, previsualizão e exporta system prompts completos para GPT/Claude a partir das configurações do clone"
+      commands:
+        - generate-prompt
+        - preview-prompt
+        - export-prompt
+        - estimate-tokens
+        - compact-prompt
+      confidence: 0.94
+      user_added: false
+      user_modified: false
+
+    - id: turing-tester
+      role: "Executa e analisa o Turing Test 2.0 (5 testes, 10 pts cada) para validar a qualidade do clone"
+      commands:
+        - run-turing-test
+        - score-response
+        - generate-report
+        - suggest-improvements
+        - view-history
+      confidence: 0.93
+      user_added: false
+      user_modified: false
+
+    - id: clone-manager
+      role: "Gerencia o ciclo de vida dos clones: versioning, duplicação, arquivo, importação e exportação"
+      commands:
+        - list-clones
+        - version-clone
+        - duplicate-clone
+        - archive-clone
+        - export-clone
+        - import-clone
+        - compare-versions
+      confidence: 0.92
+      user_added: false
+      user_modified: false
+
+    - id: self-clone-specialist
+      role: "Conduz o fluxo especial de auto-clonagem, capturando decisões passadas e extraindo frameworks pessoais"
+      commands:
+        - start-self-clone
+        - capture-decisions
+        - detect-patterns
+        - generate-self-frameworks
+        - validate-self-clone
+      confidence: 0.90
+      user_added: false
+      user_modified: false
+
+  tasks:
+    # framework-librarian tasks
+    - name: framework-librarian-catalog.md
+      agent: framework-librarian
+      entrada: [person_filter, type_filter, search_query]
+      saida: [frameworks_list, total_count, filters_applied]
+      confidence: 0.95
+
+    - name: framework-librarian-add.md
+      agent: framework-librarian
+      entrada: [name, creator, category, source_reference, formula, real_example]
+      saida: [framework_id, validation_result, library_position]
+      confidence: 0.93
+
+    - name: framework-librarian-verify.md
+      agent: framework-librarian
+      entrada: [framework_id, source_url_or_citation]
+      saida: [verified, confidence_score, notes]
+      confidence: 0.91
+
+    # clone-builder tasks
+    - name: clone-builder-define-persona.md
+      agent: clone-builder
+      entrada: [clone_name, reference_person, domain, cognitive_style, base_emotion_intensity]
+      saida: [persona_config, validation_warnings]
+      confidence: 0.96
+
+    - name: clone-builder-extract-frameworks.md
+      agent: clone-builder
+      entrada: [decisions_list, min_decisions_count]
+      saida: [detected_patterns, extracted_frameworks, extraction_quality_score]
+      confidence: 0.94
+
+    - name: clone-builder-configure-layers.md
+      agent: clone-builder
+      entrada: [layer1_frameworks, layer2_triggers, layer3_meta_rules]
+      saida: [layers_config, coverage_score, warnings]
+      confidence: 0.93
+
+    - name: clone-builder-calibrate-tfr.md
+      agent: clone-builder
+      entrada: [think_style, feel_spectrum, respond_architecture, conditional_matrix]
+      saida: [calibration_config, tfr_preview]
+      confidence: 0.92
+
+    - name: clone-builder-build-signature.md
+      agent: clone-builder
+      entrada: [formula_steps, openings, closings, template_base]
+      saida: [signature_formula, validation_checklist_results]
+      confidence: 0.91
+
+    # prompt-generator tasks
+    - name: prompt-generator-generate.md
+      agent: prompt-generator
+      entrada: [clone_id, mode]
+      saida: [system_prompt_text, token_count, sections]
+      confidence: 0.95
+
+    - name: prompt-generator-export.md
+      agent: prompt-generator
+      entrada: [clone_id, format, compact]
+      saida: [exported_file_path, format_used, token_count]
+      confidence: 0.94
+
+    # turing-tester tasks
+    - name: turing-tester-run-suite.md
+      agent: turing-tester
+      entrada: [clone_id, test_responses]
+      saida: [total_score, scores_per_test, classification, suggestions]
+      confidence: 0.93
+
+    - name: turing-tester-score-response.md
+      agent: turing-tester
+      entrada: [test_id, response_text, rubric]
+      saida: [score, breakdown, feedback]
+      confidence: 0.92
+
+    # clone-manager tasks
+    - name: clone-manager-list.md
+      agent: clone-manager
+      entrada: [filters, sort_by]
+      saida: [clones_list, stats]
+      confidence: 0.96
+
+    - name: clone-manager-version.md
+      agent: clone-manager
+      entrada: [clone_id, version_notes]
+      saida: [new_version_id, version_history]
+      confidence: 0.92
+
+    - name: clone-manager-export-import.md
+      agent: clone-manager
+      entrada: [clone_id, format]
+      saida: [export_path, json_payload]
+      confidence: 0.93
+
+    # self-clone-specialist tasks
+    - name: self-clone-capture-decisions.md
+      agent: self-clone-specialist
+      entrada: [questionnaire_answers, decision_count]
+      saida: [decisions_structured, completeness_score]
+      confidence: 0.91
+
+    - name: self-clone-detect-patterns.md
+      agent: self-clone-specialist
+      entrada: [decisions_list]
+      saida: [recurring_patterns, framework_candidates, confidence_per_pattern]
+      confidence: 0.89
+
+  template: basic
+  config_mode: extend
+
+metadata:
+  created_at: "2026-04-06T00:00:00Z"
+  source_docs:
+    - "./docs/prd.md"
+    - "./CLONE PROFISSIONAL.md"
+  user_adjustments: 0
+  overall_confidence: 0.93

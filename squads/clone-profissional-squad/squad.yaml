@@ -1,0 +1,70 @@
+name: clone-profissional-squad
+version: 1.0.0
+description: "Squad para criação sistemática de clones cognitivos profissionais — implementa a metodologia Clone Profissional com protocolo forense de extração, sistema de 3 camadas e Turing Test 2.0"
+author: Synkra AIOX
+license: MIT
+slashPrefix: clone
+
+aiox:
+  minVersion: "2.1.0"
+  type: squad
+
+components:
+  agents:
+    - framework-librarian.md
+    - clone-builder.md
+    - prompt-generator.md
+    - turing-tester.md
+    - clone-manager.md
+    - self-clone-specialist.md
+  tasks:
+    - framework-librarian-catalog.md
+    - framework-librarian-add.md
+    - framework-librarian-verify.md
+    - clone-builder-define-persona.md
+    - clone-builder-extract-frameworks.md
+    - clone-builder-configure-layers.md
+    - clone-builder-calibrate-tfr.md
+    - clone-builder-build-signature.md
+    - prompt-generator-generate.md
+    - prompt-generator-export.md
+    - turing-tester-run-suite.md
+    - turing-tester-score-response.md
+    - clone-manager-list.md
+    - clone-manager-version.md
+    - clone-manager-export-import.md
+    - self-clone-capture-decisions.md
+    - self-clone-detect-patterns.md
+  workflows:
+    - clone-creation-sdc.md
+    - self-clone-flow.md
+    - turing-validation-loop.md
+  checklists:
+    - framework-quality-checklist.md
+    - clone-readiness-checklist.md
+    - turing-test-rubric.md
+  templates:
+    - framework-entry-tmpl.yaml
+    - clone-persona-tmpl.yaml
+    - system-prompt-tmpl.md
+  tools: []
+  scripts: []
+
+config:
+  extends: extend
+  coding-standards: config/coding-standards.md
+  tech-stack: config/tech-stack.md
+  source-tree: config/source-tree.md
+
+dependencies:
+  node: []
+  python: []
+  squads: []
+
+tags:
+  - ai-clones
+  - cognitive-clone
+  - prompt-engineering
+  - frameworks
+  - turing-test
+  - clone-profissional
